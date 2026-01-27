@@ -25,14 +25,25 @@ public class Maze
         _mazeMap = mazeMap;
     }
 
-    // TODO Problem 4 - ADD YOUR CODE HERE
     /// <summary>
     /// Check to see if you can move left.  If you can, then move.  If you
     /// can't move, throw an InvalidOperationException with the message "Can't go that way!".
     /// </summary>
     public void MoveLeft()
     {
-        // FILL IN CODE
+        // Get the current position's valid movements
+        // Format: [left, right, up, down]
+        var validMoves = _mazeMap[(_currX, _currY)];
+        
+        // Check if left (index 0) is valid
+        if (validMoves[0])
+        {
+            _currX--; // Move left means decrease x
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -41,7 +52,19 @@ public class Maze
     /// </summary>
     public void MoveRight()
     {
-        // FILL IN CODE
+        // Get the current position's valid movements
+        // Format: [left, right, up, down]
+        var validMoves = _mazeMap[(_currX, _currY)];
+        
+        // Check if right (index 1) is valid
+        if (validMoves[1])
+        {
+            _currX++; // Move right means increase x
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -50,7 +73,19 @@ public class Maze
     /// </summary>
     public void MoveUp()
     {
-        // FILL IN CODE
+        // Get the current position's valid movements
+        // Format: [left, right, up, down]
+        var validMoves = _mazeMap[(_currX, _currY)];
+        
+        // Check if up (index 2) is valid
+        if (validMoves[2])
+        {
+            _currY--; // Move up means decrease y
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -59,7 +94,19 @@ public class Maze
     /// </summary>
     public void MoveDown()
     {
-        // FILL IN CODE
+        // Get the current position's valid movements
+        // Format: [left, right, up, down]
+        var validMoves = _mazeMap[(_currX, _currY)];
+        
+        // Check if down (index 3) is valid
+        if (validMoves[3])
+        {
+            _currY++; // Move down means increase y
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     public string GetStatus()
